@@ -11,8 +11,8 @@ COLUMN_NAMES = ["date", "title", "link", "location", "description", "en_title"]
 
 # === Translator Setup ===
 translator = MyMemoryTranslator(source='de-DE', target='en-GB')
-translated = translator.translate("Guten Tag")
-print(translated)
+# translated = translator.translate("Guten Tag")
+# print(translated)
 def translate_title(title):
     try:
         return translator.translate(title)
@@ -45,7 +45,15 @@ for year in YEARS:
         title = row.get("title", "").strip()
         if title and not row.get("en_title", "").strip():
             print(f"[{year}] Translating ({i+1}/{len(rows)}): {title}")
-            row["en_title"] = translate_title(title)
+
+            try:
+                row["en_title"] = translator.translate(title)
+            except Exception as e:
+                print(f"❌ Error translating title '{title}': {e}")
+                if e.__class__.__name__ == "TooManyRequests":
+                    updated = False
+                    break
+
             updated = True
         else:
             print(f"[{year}] Skipping ({i+1}/{len(rows)}): already has en_title")
@@ -57,4 +65,4 @@ for year in YEARS:
             writer.writerows(rows)
         print(f"✅ Updated {filename} with new translations.")
     else:
-        print(f"✅ No missing translations in {filename}.")
+        print(f"📎 No new changes have been made to {filename}.")
