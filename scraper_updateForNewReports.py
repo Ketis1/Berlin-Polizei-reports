@@ -90,13 +90,13 @@ if new_entries:
             existing = f.read()
 
         with open(CSV_FILE, "w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=["date", "title", "link", "location"])
+            writer = csv.DictWriter(f, fieldnames=["date", "title", "link", "location", "description", "en_title"])
             writer.writeheader()
             writer.writerows(new_entries)
             f.write(existing.split('\n', 1)[-1])  # skip duplicate header
     else:
         with open(CSV_FILE, "w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=["date", "title", "link", "location"])
+            writer = csv.DictWriter(f, fieldnames=["date", "title", "link", "location", "description", "en_title"])
             writer.writeheader()
             writer.writerows(new_entries)
 
