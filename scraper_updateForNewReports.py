@@ -9,7 +9,7 @@ import random
 
 # ---- CONFIG ----
 YEAR = 2025
-CSV_FILE = f"berlin_polizei_{YEAR}.csv"
+CSV_FILE = f"berlin_reports_yearly/berlin_polizei_{YEAR}.csv"
 BASE_URL = "https://www.berlin.de"
 START_URL = f"{BASE_URL}/polizei/polizeimeldungen/archiv/{YEAR}/?page_at_1_0="
 

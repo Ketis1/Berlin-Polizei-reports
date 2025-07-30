@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # === CONFIG ===
-DATA_FOLDER = "."  # folder where CSV files are stored
+DATA_FOLDER = "berlin_reports_yearly"  # folder where CSV files are stored
 YEARS = list(range(2014, 2026))  # adjust as needed
 COLUMN_NAMES = ["date", "title", "link", "location", "description"]
 

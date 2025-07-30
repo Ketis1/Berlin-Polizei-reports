@@ -5,7 +5,7 @@ from deep_translator import MyMemoryTranslator
 
 
 # === CONFIG ===
-DATA_FOLDER = "."  # folder where CSV files are stored
+DATA_FOLDER = "berlin_reports_yearly"  # folder where CSV files are stored
 YEARS = list(range(2014, 2026))  # adjust as needed
 COLUMN_NAMES = ["date", "title", "link", "location", "description", "en_title"]
 
