@@ -3,7 +3,6 @@ import csv
 
 from deep_translator import MyMemoryTranslator
 
-
 # === CONFIG ===
 DATA_FOLDER = "berlin_reports_yearly"  # folder where CSV files are stored
 YEARS = list(range(2014, 2026))  # adjust as needed
@@ -41,6 +40,7 @@ for year in YEARS:
             row['en_title'] = ""
 
     updated = False
+    tooManyRequests = False
     for i, row in enumerate(rows):
         title = row.get("title", "").strip()
         if title and not row.get("en_title", "").strip():
@@ -51,7 +51,7 @@ for year in YEARS:
             except Exception as e:
                 print(f"❌ Error translating title '{title}': {e}")
                 if e.__class__.__name__ == "TooManyRequests":
-                    updated = False
+                    tooManyRequests = True
                     break
 
             updated = True
@@ -66,3 +66,7 @@ for year in YEARS:
         print(f"✅ Updated {filename} with new translations.")
     else:
         print(f"📎 No new changes have been made to {filename}.")
+
+    if tooManyRequests:
+        print("🔒 You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function")
+        exit(0)
