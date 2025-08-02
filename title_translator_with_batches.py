@@ -15,6 +15,8 @@ WAIT_TIME = 2  # Seconds to wait between batches to avoid rate-limiting
 # === Translator Setup ===
 translator = MyMemoryTranslator(source='de-DE', target='en-GB')
 
+total_chars = 0
+
 def translate_titles_batch(titles):
     try:
         return translator.translate_batch(titles)
@@ -73,6 +75,10 @@ for year in YEARS:
                 if e.__class__.__name__ == "TooManyRequests":
                     print("⚠️ Too many requests. Try again later.")
                 break
+
+            # Count characters in this batch
+            batch_chars = sum(len(title) for title in chunk)
+            total_chars += batch_chars
     else:
         updated = False
 
@@ -85,3 +91,6 @@ for year in YEARS:
         print(f"✅ Updated {filename} with new translations.")
     else:
         print(f"📎 No new changes have been made to {filename}.")
+
+
+print(f"\n🔢 Total characters translated: {total_chars}")

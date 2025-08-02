@@ -19,6 +19,8 @@ def translate_title(title):
         print(f"❌ Error translating title '{title}': {e}")
         return ""
 
+total_chars = 0
+
 # === Process all CSVs ===
 for year in YEARS:
     filename = os.path.join(DATA_FOLDER, f"berlin_polizei_{year}.csv")
@@ -54,6 +56,7 @@ for year in YEARS:
                     tooManyRequests = True
                     break
 
+            total_chars += len(title)
             updated = True
         else:
             print(f"[{year}] Skipping ({i+1}/{len(rows)}): already has en_title")
@@ -70,3 +73,4 @@ for year in YEARS:
     if tooManyRequests:
         print("🔒 You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function")
         exit(0)
+print(f"🔤 Total characters translated: {total_chars}")
