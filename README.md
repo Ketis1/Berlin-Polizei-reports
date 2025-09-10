@@ -141,6 +141,36 @@ It scrapes official reports from [berlin.de](https://www.berlin.de/polizei/poliz
  
   - Plots analyzing reports per km² by district
 
+## Results
+
+![Category distribution in top 10 locations](images/Category-distribution-in-top-10-locations.png)
+
+
+![Monthly distribution of reports across years](images/Monthly-distribution-of-reports-across-years.png)
+
+![Number of reports by category](images/Number-of-reports-by-category.png)
+
+![Number of reports per month all years combined](images/Number-of-reports-per-month-all-years-combined.png)
+
+![Number of reports per year](images/Number-of-reports-per-year.png)
+
+![Reports by category and year](images/Reports-by-category-and-year.png)
+
+![Reports by day of the week](images/Reports-by-day-of-the-week.png)
+
+![Reports density per 100k residents by district](images/Reports-density-per-100k-residents-by-district.png)
+
+![Reports density per km2 by district](images/Reports-density-per-km2-by-district.png)
+
+![Reports over time monthly](images/Reports-over-time-monthly.png)
+
+![Share of categories per year](images/Share-of-categories-per-year.png)
+
+![Top 10 locations](images/Top-10-locations.png)
+
+![Top 10 locations in reports](images/Top-10-locations-in-reports.png)
+
+![Trend of Gewaltverbrechen reports over time](images/Trend-of-Gewaltverbrechen-reports-over-time.png)
 
 
 
