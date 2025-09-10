@@ -11,7 +11,7 @@ device = 0 if torch.cuda.is_available() else -1
 print(f"Device set to: {'GPU' if device == 0 else 'CPU'}")
 
 # Load the dataset
-input_file = "berlin_reports_yearly/berlin_polizei_2020.csv"
+input_file = "../berlin_reports_yearly/berlin_polizei_2020.csv"
 df = pd.read_csv(input_file)
 
 # Fill missing text fields

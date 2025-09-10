@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score
 print("init")
 
 # Load data
-df = pd.read_csv("berlin_reports_yearly/berlin_polizei_2020.csv")
+df = pd.read_csv("../berlin_reports_yearly/berlin_polizei_2020.csv")
 df = df.dropna(subset=["title"]).copy()
 
 # Unsupervised clustering to simulate categories
